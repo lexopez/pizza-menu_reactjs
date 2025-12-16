@@ -70,28 +70,24 @@ function Menu() {
         our stone oven, all organic, all delicious.
       </p>
       <ul className="pizzas">
-        <li className="pizza">
-          <img src={pizzaData[0].photoName} alt={pizzaData[0].name} />
-          <div>
-            <h3>{pizzaData[0].name}</h3>
-            <p>{pizzaData[0].ingredients}</p>
-            <span>
-              {pizzaData[0].soldOut ? "SOLD OUT" : pizzaData[0].price}
-            </span>
-          </div>
-        </li>
-        <li className="pizza">
-          <img src={pizzaData[1].photoName} alt={pizzaData[1].name} />
-          <div>
-            <h3>{pizzaData[1].name}</h3>
-            <p>{pizzaData[1].ingredients}</p>
-            <span>
-              {pizzaData[1].soldOut ? "SOLD OUT" : pizzaData[1].price}
-            </span>
-          </div>
-        </li>
+        {pizzaData.map((pizza) => (
+          <Pizza pizzaObj={pizza} key={pizza.name} />
+        ))}
       </ul>
     </main>
+  );
+}
+
+function Pizza({ pizzaObj }) {
+  return (
+    <li className={`pizza ${pizzaObj.soldOut ? "sold-out" : ""}`}>
+      <img src={pizzaObj.photoName} alt={pizzaObj.name} />
+      <div>
+        <h3>{pizzaObj.name}</h3>
+        <p>{pizzaObj.ingredients}</p>
+        <span>{pizzaObj.soldOut ? "SOLD OUT" : pizzaObj.price}</span>
+      </div>
+    </li>
   );
 }
 
