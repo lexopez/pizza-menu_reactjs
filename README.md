@@ -12,8 +12,6 @@ This app presents an Italian-inspired menu with carefully styled sections, inclu
 - A short menu introduction
 - A list of menu items with images, descriptions, and prices
 
-Each menu item is rendered dynamically using React components, following best practices for component composition and separation of concerns.
-
 ---
 
 ## 🛠️ Tech Stack
