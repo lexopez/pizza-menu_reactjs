@@ -101,12 +101,23 @@ function Pizza({ pizzaObj }) {
 }
 
 function Footer() {
+  const hour = new Date().getHours();
+  const openHour = 8;
+  const closeHour = 22;
+  const isOpen = hour >= openHour && hour <= closeHour;
+
   return (
     <footer className="footer">
-      <div className="order">
-        <p>We're open from this our to this our. Come visit us or order.</p>
-        <button className="btn">Order</button>
-      </div>
+      {isOpen ? (
+        <div className="order">
+          <p>We're open from this our to this our. Come visit us or order.</p>
+          <button className="btn">Order</button>
+        </div>
+      ) : (
+        <p>
+          We're happy to welcome you between {openHour}:00 and {closeHour}:00.
+        </p>
+      )}
     </footer>
   );
 }
